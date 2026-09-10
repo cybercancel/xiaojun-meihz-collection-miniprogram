@@ -1,0 +1,52 @@
+# 晓军商贸美妆集合仓 · 微信小程序（毕设源码验证包）
+
+> 版本：v17.92（已发布生产）  |  构建日期：2026-09-10
+> 本仓库为**论文实现核实用精简源码包**：已剔除全部密钥、不含 `node_modules`、不含 `.git` 历史外的冗余。
+
+## 一、这份包能验证什么
+- 前端实现：`pages/`（用户端 + 管理端 admin*）、`utils/`、`app.json`
+- 后端实现：`cloudfunctions/`（80 个云函数）、`cloudfunctions-shared/`（18 个共享模块）
+- 质量保障：`tests/`（unit 11 + integration 6 + concurrency 1，113 项）、`scripts/`（predeploy-check 17 项门禁）
+- 数据模型：`database/`（集合结构 + 索引规范）
+- 交付文档：`docs/交付文档/`（技术总结报告等）
+
+## 二、目录结构
+```
+app.json                      小程序全局配置（页面注册、窗口、tabBar）
+project.config.json           工程配置（AppID 已置为生产 wx78baa610...）
+package.json                  脚本入口（test:all / predeploy-check / upload）
+sitemap.json
+pages/                        前端页面（wxml+wxss+js+json）
+utils/                        前端工具（money/日期/请求封装等）
+cloudfunctions/               云函数（按职责拆分，见 docs）
+cloudfunctions-shared/        跨云函数共享代码（单一来源，见 cloudfunctions-shared-map.json）
+tests/                        自动化测试
+scripts/                      predeploy 门禁 / 同步脚本
+database/                     集合结构与索引
+docs/交付文档/                技术总结、TASK 报告
+```
+
+## 三、本地运行 / 复验
+```bash
+# 1. 还原依赖（仅运行测试/门禁需要）
+npm install
+# 2. 跑全部测试 + 门禁（需 CloudBase 测试环境）
+npm run test:all
+node scripts/predeploy-check.js
+# 3. 真机预览：用微信开发者工具打开本目录，导入生产 AppID 后“预览/上传”
+```
+> 注：云函数运行需 CloudBase 环境与生产密钥；**密钥文件未随包提供**（安全边界），
+> 真机联调请参照 `docs/交付文档/交接手册.md` 从安全位置取回。
+
+## 四、安全红线（务必遵守）
+- 下列文件**已剔除，禁止重新提交**：`private-key-test.pem`（小程序上传私钥）、
+  `cloudfunctions/wxpay/apiclient_cert.pem`、`apiclient_key.pem`（商户证书）。
+- 任何含 `*.pem / *.p12 / *.key / private-key*` 的文件不得进入版本库。
+- `.gitignore` 已包含上述规则，提交前 `git status` 二次确认无密钥。
+
+## 五、论文章节映射
+见打包内 `论文素材/` 与 `交接文档/技术总结报告`（若随包提供），
+或本地工作区 `F:\中转站\毕设\Ai毕设\论文素材\00_素材总览与论文映射.md`。
+
+# 本地草稿（非程序源码，不进仓库）
+截图采集清单.md
