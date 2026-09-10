@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "openapi": []
+  },
+  "triggers": [],
+  "memorySize": 256,
+  "timeout": 3
+}
