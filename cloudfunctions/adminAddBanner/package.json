@@ -1,0 +1,9 @@
+{
+  "name": "adminAddBanner",
+  "version": "1.0.0",
+  "description": "管理员添加横幅",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
