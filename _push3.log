@@ -1,0 +1,39 @@
+collected 840 files
+  retry 1/5 GET https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/refs/heads/main -> 409
+  retry 2/5 GET https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/refs/heads/main -> 409
+  retry 3/5 GET https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/refs/heads/main -> 409
+  retry 4/5 GET https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/refs/heads/main -> 409
+  retry 5/5 GET https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/refs/heads/main -> 409
+empty repo, no main yet
+  retry 1/5 POST https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/blobs -> 409
+  retry 2/5 POST https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/blobs -> 409
+  retry 3/5 POST https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/blobs -> 409
+  retry 4/5 POST https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/blobs -> 409
+  retry 5/5 POST https://api.github.com/repos/cybercancel/xiaojun-meihz-collection-miniprogram/git/blobs -> 409
+Traceback (most recent call last):
+  File "F:\中转站\毕设\Ai毕设\_thesis_source_export\_push_api.py", line 66, in <module>
+    body, _ = api("POST", f"{API}/repos/{REPO}/git/blobs",
+              ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  json.dumps({"content": b64, "encoding": "base64"}).encode())
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\中转站\毕设\Ai毕设\_thesis_source_export\_push_api.py", line 46, in api
+    raise last
+  File "F:\中转站\毕设\Ai毕设\_thesis_source_export\_push_api.py", line 38, in api
+    with urllib.request.urlopen(req, timeout=60, context=ctx) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22508\.workbuddy\binaries\python\versions\3.13.12\Lib\urllib\request.py", line 189, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22508\.workbuddy\binaries\python\versions\3.13.12\Lib\urllib\request.py", line 495, in open
+    response = meth(req, response)
+  File "C:\Users\22508\.workbuddy\binaries\python\versions\3.13.12\Lib\urllib\request.py", line 604, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "C:\Users\22508\.workbuddy\binaries\python\versions\3.13.12\Lib\urllib\request.py", line 533, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\22508\.workbuddy\binaries\python\versions\3.13.12\Lib\urllib\request.py", line 466, in _call_chain
+    result = func(*args)
+  File "C:\Users\22508\.workbuddy\binaries\python\versions\3.13.12\Lib\urllib\request.py", line 613, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 409: Conflict
