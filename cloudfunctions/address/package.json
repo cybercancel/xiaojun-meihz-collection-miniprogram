@@ -1,0 +1,9 @@
+{
+  "name": "address",
+  "version": "1.0.0",
+  "description": "多地址簿云函数（增删改查 + 设默认）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
